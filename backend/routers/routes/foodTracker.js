@@ -15,9 +15,16 @@ const {
   updateDinner,
   updateGlassesOfWater,
   updateActiveTime,
+  deleteToBreakfast,
+  deleteToSnack,
+  deleteToLunch,
+  deleteToDinner,
+  deleteToGlassesOfWater,
+  deleteToActiveTime,
 } = require("./../controllers/foodTracker");
 
 const foodTracker = express.Router();
+
 //post
 foodTracker.post("/foodTracker", authentication, createFoodTracker);
 foodTracker.post("/breakfast", authentication, addToBreakfast);
@@ -36,6 +43,12 @@ foodTracker.put("/glassesofwater", authentication, updateGlassesOfWater);
 foodTracker.put("/activetime", authentication, updateActiveTime);
 
 //delete
+foodTracker.delete("/breakfast", authentication, deleteToBreakfast);
+foodTracker.delete("/snack", authentication, deleteToSnack);
+foodTracker.delete("/lunch", authentication, deleteToLunch);
+foodTracker.delete("/dinner", authentication, deleteToDinner);
+foodTracker.delete("/glassesofwater", authentication, deleteToGlassesOfWater);
+foodTracker.delete("/activetime", authentication, deleteToActiveTime);
 
 foodTracker.post("/foodTracker", authentication, createFoodTracker);
 foodTracker.put("/foodTracker", authentication, updateFoodTracker);

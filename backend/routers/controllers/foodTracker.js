@@ -142,6 +142,72 @@ const updateActiveTime = (req, res) => {
   });
 };
 
+const deleteToBreakfast = (req, res) => {
+  const user_id = req.token.id;
+  const { id } = req.body;
+  const query = `DELETE FROM breakfast WHERE id = ? AND user_id=?`;
+  const data = [id, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+
+const deleteToSnack = (req, res) => {
+  const user_id = req.token.id;
+  const { id } = req.body;
+  const query = `DELETE FROM snack WHERE id = ? AND user_id=?`;
+  const data = [id, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+
+const deleteToLunch = (req, res) => {
+  const user_id = req.token.id;
+  const { id } = req.body;
+  const query = `DELETE FROM lunch WHERE id = ? AND user_id=?`;
+  const data = [id, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+
+const deleteToDinner = (req, res) => {
+  const user_id = req.token.id;
+  const { id } = req.body;
+  const query = `DELETE FROM dinner WHERE id = ? AND user_id=?`;
+  const data = [id, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+
+const deleteToGlassesOfWater = (req, res) => {
+  const user_id = req.token.id;
+  const { id } = req.body;
+  const query = `DELETE FROM glassesOfWater WHERE id = ? AND user_id=?`;
+  const data = [id, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+
+const deleteToActiveTime = (req, res) => {
+  const user_id = req.token.id;
+  const { id } = req.body;
+  const query = `DELETE FROM activeTime WHERE id = ? AND user_id=?`;
+  const data = [id, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+
 const createFoodTracker = (req, res) => {
   const user_id = req.token.id;
   const { breakfast, snack, lunch, dinner, glassesOfWater, activeTime } =
@@ -200,4 +266,10 @@ module.exports = {
   updateDinner,
   updateGlassesOfWater,
   updateActiveTime,
+  deleteToBreakfast,
+  deleteToSnack,
+  deleteToLunch,
+  deleteToDinner,
+  deleteToGlassesOfWater,
+  deleteToActiveTime,
 };
