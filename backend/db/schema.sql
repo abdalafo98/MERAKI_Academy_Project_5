@@ -66,7 +66,6 @@ CREATE TABLE snack (
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
-
 );
 
 CREATE TABLE lunch (
@@ -75,7 +74,6 @@ CREATE TABLE lunch (
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
-
 );
 
 CREATE TABLE dinner (
@@ -84,7 +82,6 @@ CREATE TABLE dinner (
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
-
 );
 
 CREATE TABLE glassesOfWater (
@@ -93,7 +90,6 @@ CREATE TABLE glassesOfWater (
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
-
 );
 
 CREATE TABLE activeTime (
@@ -102,7 +98,6 @@ CREATE TABLE activeTime (
  user_id INT,
  FOREIGN KEY (user_id) REFERENCES users(id),
  primary key (id)
-
 );
 
 CREATE TABLE foodTraker (
