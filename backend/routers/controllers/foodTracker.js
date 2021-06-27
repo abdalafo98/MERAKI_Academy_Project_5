@@ -32,6 +32,28 @@ const addToLunch = (req, res) => {
     res.status(200).send("insert is done");
   });
 };
+
+const addToDinner = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `INSERT INTO dinner (name, user_id) VALUES (?,?)`;
+  const data = [name, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+const addToGlassesOfWater = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `INSERT INTO glassesOfWater (name, user_id) VALUES (?,?)`;
+  const data = [name, user_id];
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("insert is not done");
+    res.status(200).send("insert is done");
+  });
+};
+
 const createFoodTracker = (req, res) => {
   const user_id = req.token.id;
   const { breakfast, snack, lunch, dinner, glassesOfWater, activeTime } =
