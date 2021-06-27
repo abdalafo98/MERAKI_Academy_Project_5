@@ -65,6 +65,83 @@ const addToActiveTime = (req, res) => {
   });
 };
 
+const updateBreakfast = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `UPDATE breakfast SET
+  name=? WHERE user_id=?`;
+  const data = [name, user_id];
+
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("update is not done");
+    res.status(200).json(result);
+  });
+};
+const updateSnack = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `UPDATE snack SET
+  name=? WHERE user_id=?`;
+  const data = [name, user_id];
+
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("update is not done");
+    res.status(200).json(result);
+  });
+};
+
+const updateLunch = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `UPDATE lunch SET
+  name=? WHERE user_id=?`;
+  const data = [name, user_id];
+
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("update is not done");
+    res.status(200).json(result);
+  });
+};
+
+const updateDinner = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `UPDATE dinner SET
+  name=? WHERE user_id=?`;
+  const data = [name, user_id];
+
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("update is not done");
+    res.status(200).json(result);
+  });
+};
+
+const updateGlassesOfWater = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `UPDATE glassesOfWater SET
+  name=? WHERE user_id=?`;
+  const data = [name, user_id];
+
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("update is not done");
+    res.status(200).json(result);
+  });
+};
+
+const updateActiveTime = (req, res) => {
+  const user_id = req.token.id;
+  const { name } = req.body;
+  const query = `UPDATE activeTime SET
+  name=? WHERE user_id=?`;
+  const data = [name, user_id];
+
+  db.query(query, data, (err, result) => {
+    if (err) res.status(500).send("update is not done");
+    res.status(200).json(result);
+  });
+};
+
 const createFoodTracker = (req, res) => {
   const user_id = req.token.id;
   const { breakfast, snack, lunch, dinner, glassesOfWater, activeTime } =
@@ -117,4 +194,10 @@ module.exports = {
   addToDinner,
   addToGlassesOfWater,
   addToActiveTime,
+  updateBreakfast,
+  updateSnack,
+  updateLunch,
+  updateDinner,
+  updateGlassesOfWater,
+  updateActiveTime,
 };
