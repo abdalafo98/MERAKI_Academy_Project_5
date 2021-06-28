@@ -11,7 +11,7 @@ const addToBreakfast = (req, res) => {
     const query = `INSERT INTO foodTraker (breakfast_id, user_id) VALUE(?,?)`;
     const data = [result.insertId, user_id];
     db.query(query, data, (err, result) => {
-      if (err) return res.status(500).send("insert is not done");
+      if (err) return res.status(500).send("insert is not done ");
       res.status(200).send("insert is done");
     });
   });
