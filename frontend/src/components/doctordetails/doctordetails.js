@@ -18,7 +18,7 @@ const DoctorDetails = () => {
   const [updateText, setUpdateCommentText] = useState("");
 
   const token = localStorage.getItem("token");
-  const commenter_id = localStorage.getItem("user_id");
+  const commenter_id = localStorage.getItem("role_id");
 
   let doctorsService_id = parseInt(id);
   const dispatch = useDispatch();
@@ -133,17 +133,34 @@ const DoctorDetails = () => {
         <p>{result.practicalExperiences}</p>
       </div>
       {token ? (
-        <input
-          className="input-comment"
-          onChange={(e) => {
-            setComment(e.target.value);
-            setRating(4);
-          }}
-        />
+        <div>
+          {commenter_id == 2 ? (
+            ""
+          ) : (
+            <input
+              className="input-comment"
+              onChange={(e) => {
+                setComment(e.target.value);
+                setRating(4);
+              }}
+            />
+          )}
+        </div>
       ) : (
         ""
       )}
-      {token ? <button onClick={createComment}> ok</button> : ""}
+      {token ? (
+        <div>
+          {" "}
+          {commenter_id == 2 ? (
+            ""
+          ) : (
+            <button onClick={createComment}> ok</button>
+          )}{" "}
+        </div>
+      ) : (
+        ""
+      )}
 
       <div>
         <p>
