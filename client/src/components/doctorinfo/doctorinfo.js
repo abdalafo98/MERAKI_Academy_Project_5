@@ -38,7 +38,7 @@ const Admin = () => {
         <h3>We will be glad to have you join our family</h3>
         <p>An email will be sent to you if you are approved</p>
 
-        <form>
+        <form onSubmit={info}>
           <input
             type="text"
             placeholder=" First Name "
